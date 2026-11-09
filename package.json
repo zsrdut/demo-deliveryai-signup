@@ -1,0 +1,14 @@
+{
+  "name": "tech-sharing-signup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "技术分享会报名页：参与者报名取位次，行政凭口令查看并导出当前实例名单",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js",
+    "vercel-build": "node -e \"console.log('vercel build: static assets are ready')\""
+  }
+}
