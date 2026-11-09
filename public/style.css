@@ -11,6 +11,6 @@ button { width: 100%; padding: 11px; border: 0; border-radius: 8px; background: 
 .message.ok { color: #1c6b50; }
 .message.error { color: #9b2c2c; }
 h2 { font-size: 15px; margin: 0 0 12px; color: #1f3f7a; }
-.list { margin: 0; padding-left: 20px; }
+.list { margin: 0; padding-left: 0; list-style: none; }
 .list li { padding: 6px 0; border-bottom: 1px solid #eef0f2; font-size: 13px; }
 .list li b { display: inline-block; min-width: 26px; color: #8a8f99; font-weight: 500; }
