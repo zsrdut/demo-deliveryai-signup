@@ -63,9 +63,6 @@ async function handler(req, res) {
     if (!name || !employeeId || !department) {
       return json(res, 400, { error: '姓名、工号、部门均为必填' });
     }
-    if (store.findByEmployeeId(employeeId)) {
-      return json(res, 409, { error: '该工号已报名，请勿重复提交' });
-    }
     if (store.isFull()) {
       return json(res, 409, { error: '报名人数已满' });
     }
