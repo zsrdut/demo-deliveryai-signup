@@ -112,6 +112,7 @@ npm test
 2. 在 Project Settings → Environment Variables 配置 `ADMIN_PASSWORD`（Production 环境），不要提交到仓库。
 3. 使用默认构建命令即可：`npm run vercel-build`，静态目录为 `public/`，`api/[...path].js` 作为 Serverless 入口。
 4. 部署后使用 Vercel 分配的 Production URL 访问 `/` 报名页、`/admin` 管理页；`vercel.json` 已将 `/admin` 重写到 `admin.html`。
+5. **必须保留 `/api/(.*)` → `/api/[...path]` 重写**：Vercel 零配置路由只会把单段 `/api/<name>` 交给 catch-all 函数，`/api/admin/registrations`、`/api/admin/login`、`/api/admin/export` 这类两段路径会被平台直接返回 404，表现为管理页「名单加载失败，请重试」。`test/vercel-routing.test.js` 会守住这条配置，删除重写会导致测试失败。
 
 ## 演示环境限制（重要）
 
