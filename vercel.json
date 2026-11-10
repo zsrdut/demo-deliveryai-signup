@@ -5,6 +5,7 @@
   "outputDirectory": "public",
   "regions": ["hkg1"],
   "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/[...path]" },
     { "source": "/admin", "destination": "/admin.html" },
     { "source": "/admin/", "destination": "/admin.html" }
   ]
