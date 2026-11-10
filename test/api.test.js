@@ -491,6 +491,12 @@ test('报名页与管理页可访问，报名页不暴露管理入口', async (t
   const style = await fetch(`${base}/styles.css`);
   assert.equal(style.status, 200);
   assert.match(style.headers.get('content-type'), /text\/css/);
+
+  for (const pathname of ['/', '/admin', '/app.js', '/admin.js']) {
+    const response = await fetch(`${base}${pathname}`);
+    assert.equal(response.status, 200, pathname);
+    assert.equal((await response.text()).includes(SECRET), false, pathname);
+  }
 });
 
 test('页面与接口带基础安全响应头', async (t) => {
