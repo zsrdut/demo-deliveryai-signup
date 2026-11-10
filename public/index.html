@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>技术分享会报名</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">技术分享会</p>
+      <h1>技术分享会报名</h1>
+      <p class="lede">11 月底 14:00 · 三层报告厅</p>
+      <dl class="event-info">
+        <div>
+          <dt>主题</dt>
+          <dd>技术分享会</dd>
+        </div>
+        <div>
+          <dt>时间</dt>
+          <dd>11 月底 14:00</dd>
+        </div>
+        <div>
+          <dt>地点</dt>
+          <dd>三层报告厅</dd>
+        </div>
+      </dl>
+    </header>
+
+    <section class="card" aria-labelledby="form-title">
+      <h2 id="form-title">填写报名信息</h2>
+      <p class="hint">请填写姓名、工号、部门，报名限 50 人。</p>
+
+      <form id="signup-form" novalidate>
+        <div class="field">
+          <label for="name">姓名 <span class="req" aria-hidden="true">*</span></label>
+          <input id="name" name="name" type="text" autocomplete="name" required
+                 aria-describedby="name-hint name-error">
+          <p class="field-hint" id="name-hint">必填，最多 50 字</p>
+          <p class="field-error" id="name-error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="employee-id">工号 <span class="req" aria-hidden="true">*</span></label>
+          <input id="employee-id" name="employeeId" type="text" autocomplete="off"
+                 autocapitalize="off" spellcheck="false" required
+                 aria-describedby="employee-id-hint employee-id-error">
+          <p class="field-hint" id="employee-id-hint">必填，最多 50 字，按原字符串区分大小写</p>
+          <p class="field-error" id="employee-id-error" role="alert"></p>
+        </div>
+
+        <div class="field">
+          <label for="department">部门 <span class="req" aria-hidden="true">*</span></label>
+          <input id="department" name="department" type="text" autocomplete="organization" required
+                 aria-describedby="department-hint department-error">
+          <p class="field-hint" id="department-hint">必填，最多 100 字</p>
+          <p class="field-error" id="department-error" role="alert"></p>
+        </div>
+
+        <button id="submit" class="primary" type="submit">提交报名</button>
+        <p id="form-error" class="form-error" role="alert"></p>
+      </form>
+    </section>
+
+    <section id="result" class="card result" aria-live="polite" hidden>
+      <h2 id="result-title"></h2>
+      <p id="result-text"></p>
+    </section>
+
+    <p id="capacity" class="capacity" aria-live="polite">
+      <span id="capacity-text">报名限 50 人</span><span id="capacity-count">，当前已报名 <strong id="total">—</strong>/50</span>
+    </p>
+  </main>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

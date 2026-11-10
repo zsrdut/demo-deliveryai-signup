@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>报名名单管理 - 技术分享会</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page page-wide">
+    <header class="hero hero-compact">
+      <p class="eyebrow">技术分享会</p>
+      <h1>报名名单管理</h1>
+    </header>
+
+    <section id="login-panel" class="card" aria-labelledby="login-title">
+      <h2 id="login-title">请输入管理口令</h2>
+      <p class="hint">行政人员专用入口，口令由活动组织方线下提供。</p>
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="password">管理口令</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <p class="field-error" id="login-error" role="alert"></p>
+        </div>
+        <button id="login-submit" class="primary" type="submit">进入名单</button>
+      </form>
+    </section>
+
+    <section id="dashboard" hidden>
+      <div class="notice" role="note">本系统使用内存存储，实例重启/切换会清空名单</div>
+
+      <section class="card" aria-labelledby="list-title">
+        <div class="list-head">
+          <h2 id="list-title">报名名单</h2>
+          <p class="summary">已报名 <strong id="total">0</strong>/50</p>
+        </div>
+
+        <div class="actions">
+          <button id="export" class="secondary" type="button" disabled>导出 CSV</button>
+          <p id="export-hint" class="hint"></p>
+        </div>
+
+        <p id="list-status" class="list-status" role="status" aria-live="polite"></p>
+        <button id="retry" class="secondary small" type="button" hidden>重试读取</button>
+
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">当前运行实例报名名单</caption>
+            <thead>
+              <tr>
+                <th scope="col">位次</th>
+                <th scope="col">姓名</th>
+                <th scope="col">工号</th>
+                <th scope="col">部门</th>
+                <th scope="col">报名时间</th>
+              </tr>
+            </thead>
+            <tbody id="list"></tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/admin.js" defer></script>
+</body>
+</html>
